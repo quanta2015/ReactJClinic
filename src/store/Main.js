@@ -24,6 +24,26 @@ class Main extends BaseActions {
   }
 
 
+  @action
+  async taskProc(params,type) {
+    let url
+    switch(type) {
+      case 0: url = this.URL_TASK_ACCEPT;break;
+      case 1: url = this.URL_TASK_FINISH;break;
+      case 2: url = this.URL_TASK_SDBACK;break;
+      case 3: url = this.URL_TASK_AUDIT ;break;
+      case 4: url = this.URL_TASK_ALLOCATE ;break;
+      case 5: url = this.URL_TASK_REMIND ;break;
+      case 6: url = this.URL_TASK_REPLY ;break;
+    }
+    Toast.loading('加载中', 0)
+    const r = await request(url,params)
+    Toast.hide()
+    Toast.info('成功！')
+    return r
+  }
+
+
 }
 
 export default new Main()

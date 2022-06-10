@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { inject, observer } from 'mobx-react'
 
 
@@ -6,40 +6,31 @@ import logo from "img/icon_logo.svg"
 import './index.less'
 
 
-{
-  "logo":"",
-  "name":"BREATH CLINIC GINZA",
-  "info"
-}
+const Header =({nav, menu})=> {
 
-const Header =({children})=> {
-	
+  
+  const nJ = (nav)?JSON.parse(nav?.json):null
+  const mJ = (menu)?JSON.parse(menu?.json).menu:[]
+
   return (
     <>
       <div className="g-nav">
         <a href="/">
           <img src={logo}/>
-          <label>BREATH CLINIC GINZA</label>
+          <label>{nJ?.name}</label>
         </a>
 
         <div className="sp"></div>
 
         <div className="m-info">
           <div className="m-cont">
-            <span>03-6278-8881</span>
+            <span>{nJ?.info1}</span>
           </div>
-          <div className="m-date">
-            営業時間｜10:00 ～ 20:00 | 予約制・完全個室・不定休
-          </div>
+          <div className="m-date">{nJ?.info2}</div>
         </div>
       </div>
       <div className="g-menu">
-        <li>診療メニュー</li>
-        <li>当院について</li>
-        <li>ご予約</li>
-        <li>アクセス</li>
-        <li>お問い合わせ</li>
-        <li>よくあるご質問</li>
+        {mJ.map((item,i)=> <li key={i}>{item}</li> )}
       </div>
     </>
   )
