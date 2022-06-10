@@ -10,7 +10,7 @@ import './index.less'
 
 const Nav =({children,ms})=> {
 
-  const [params, setParams] = useState(0);
+  const [params, setParams] = useState(0)
 
   useEffect(() => {
     ms.post(urls.API_QRY_NAV,null).then( r => {

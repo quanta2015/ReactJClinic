@@ -12,6 +12,7 @@ const Header =({nav, menu})=> {
   const nJ = (nav)?JSON.parse(nav?.json):null
   const mJ = (menu)?JSON.parse(menu?.json).menu:[]
 
+
   return (
     <>
       <div className="g-nav">
