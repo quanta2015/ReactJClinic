@@ -1,0 +1,35 @@
+.g-ft {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: #eee; 
+  font-size: 12px;
+  background-color: #333;
+  font-weight: bold;
+  padding: 40px;
+
+
+  &>p {
+    display: flex;
+    flex-direction: column;
+    width: var(--sys-wid);
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+  .g-ft {
+    padding: 40px 10px;
+
+    &>p {
+      width: 100vw;
+      align-items: center;
+      letter-spacing: 0;
+    }
+
+  }
+}
